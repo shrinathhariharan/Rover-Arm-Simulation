@@ -1,0 +1,24 @@
+/**:
+  ros__parameters:
+    base_frame: base_link
+    target_color: red
+    detection_range_m: 3.0
+    detection_fov_deg: 90.0
+    color_pixel_threshold: 40
+    pickup_distance_m: 0.45
+    search_linear_speed: 0.0
+    search_angular_speed: 0.35
+    approach_linear_gain: 0.55
+    approach_angular_gain: 1.8
+    max_linear_speed: 0.35
+    max_angular_speed: 0.9
+    arm_link_1_m: 0.32
+    arm_link_2_m: 0.26
+    arm_home: [0.0, 0.75, -1.15, 0.0]
+    arm_grasp: [0.0, 0.15, -1.25, 1.0]
+    object_names: ["red_ball", "green_cube", "purple_pyramid"]
+    object_colors: ["red", "green", "purple"]
+    object_positions_x: [2.2, 3.0, 1.8]
+    object_positions_y: [0.7, -1.0, 1.4]
+    teleop_priority_timeout_s: 0.75
+    publish_rate_hz: 20.0

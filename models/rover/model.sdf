@@ -1,0 +1,202 @@
+<?xml version="1.0" ?>
+<sdf version="1.8">
+  <model name="rover">
+    <pose>0 0 0.10 0 0 0</pose>
+
+    <link name="base_link">
+      <pose>0 0 0.10 0 0 0</pose>
+      <inertial>
+        <mass>10.0</mass>
+        <inertia>
+          <ixx>0.11</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.16</iyy>
+          <iyz>0</iyz>
+          <izz>0.22</izz>
+        </inertia>
+      </inertial>
+      <visual name="base_visual">
+        <geometry><box><size>0.62 0.42 0.16</size></box></geometry>
+        <material>
+          <ambient>0.12 0.35 0.55 1</ambient>
+          <diffuse>0.12 0.35 0.55 1</diffuse>
+        </material>
+      </visual>
+      <collision name="base_collision">
+        <geometry><box><size>0.62 0.42 0.16</size></box></geometry>
+      </collision>
+    </link>
+
+    <link name="left_wheel">
+      <pose>0 0.25 0.07 -1.5707 0 0</pose>
+      <inertial><mass>0.7</mass><inertia><ixx>0.001</ixx><iyy>0.001</iyy><izz>0.001</izz></inertia></inertial>
+      <visual name="visual">
+        <geometry><cylinder><radius>0.07</radius><length>0.055</length></cylinder></geometry>
+        <material><ambient>0.04 0.04 0.04 1</ambient><diffuse>0.04 0.04 0.04 1</diffuse></material>
+      </visual>
+      <collision name="collision"><geometry><cylinder><radius>0.07</radius><length>0.055</length></cylinder></geometry></collision>
+    </link>
+
+    <link name="right_wheel">
+      <pose>0 -0.25 0.07 -1.5707 0 0</pose>
+      <inertial><mass>0.7</mass><inertia><ixx>0.001</ixx><iyy>0.001</iyy><izz>0.001</izz></inertia></inertial>
+      <visual name="visual">
+        <geometry><cylinder><radius>0.07</radius><length>0.055</length></cylinder></geometry>
+        <material><ambient>0.04 0.04 0.04 1</ambient><diffuse>0.04 0.04 0.04 1</diffuse></material>
+      </visual>
+      <collision name="collision"><geometry><cylinder><radius>0.07</radius><length>0.055</length></cylinder></geometry></collision>
+    </link>
+
+    <link name="rear_caster">
+      <pose>-0.24 0 0.045 0 0 0</pose>
+      <inertial><mass>0.2</mass><inertia><ixx>0.0001</ixx><iyy>0.0001</iyy><izz>0.0001</izz></inertia></inertial>
+      <visual name="visual">
+        <geometry><sphere><radius>0.045</radius></sphere></geometry>
+        <material><ambient>0.35 0.35 0.35 1</ambient><diffuse>0.35 0.35 0.35 1</diffuse></material>
+      </visual>
+      <collision name="collision"><geometry><sphere><radius>0.045</radius></sphere></geometry></collision>
+    </link>
+
+    <link name="camera_link">
+      <pose>0.24 0 0.23 0 0 0</pose>
+      <inertial><mass>0.1</mass><inertia><ixx>0.0001</ixx><iyy>0.0001</iyy><izz>0.0001</izz></inertia></inertial>
+      <visual name="visual">
+        <geometry><box><size>0.10 0.08 0.06</size></box></geometry>
+        <material><ambient>0.08 0.08 0.09 1</ambient><diffuse>0.08 0.08 0.09 1</diffuse></material>
+      </visual>
+      <collision name="collision"><geometry><box><size>0.10 0.08 0.06</size></box></geometry></collision>
+      <sensor name="camera" type="camera">
+        <topic>camera</topic>
+        <update_rate>15</update_rate>
+        <camera>
+          <horizontal_fov>1.396</horizontal_fov>
+          <image><width>640</width><height>480</height><format>R8G8B8</format></image>
+          <clip><near>0.05</near><far>10</far></clip>
+        </camera>
+      </sensor>
+    </link>
+
+    <link name="arm_link_1">
+      <pose>0.25 0 0.34 0 0.62 0</pose>
+      <inertial><mass>0.5</mass><inertia><ixx>0.002</ixx><iyy>0.002</iyy><izz>0.001</izz></inertia></inertial>
+      <visual name="visual">
+        <geometry><box><size>0.32 0.045 0.045</size></box></geometry>
+        <material><ambient>0.85 0.78 0.18 1</ambient><diffuse>0.85 0.78 0.18 1</diffuse></material>
+      </visual>
+      <collision name="collision"><geometry><box><size>0.32 0.045 0.045</size></box></geometry></collision>
+    </link>
+
+    <link name="arm_link_2">
+      <pose>0.49 0 0.48 0 -0.40 0</pose>
+      <inertial><mass>0.35</mass><inertia><ixx>0.001</ixx><iyy>0.001</iyy><izz>0.001</izz></inertia></inertial>
+      <visual name="visual">
+        <geometry><box><size>0.26 0.04 0.04</size></box></geometry>
+        <material><ambient>0.88 0.48 0.14 1</ambient><diffuse>0.88 0.48 0.14 1</diffuse></material>
+      </visual>
+      <collision name="collision"><geometry><box><size>0.26 0.04 0.04</size></box></geometry></collision>
+    </link>
+
+    <link name="gripper">
+      <pose>0.62 0 0.42 0 0 0</pose>
+      <inertial><mass>0.15</mass><inertia><ixx>0.0002</ixx><iyy>0.0002</iyy><izz>0.0002</izz></inertia></inertial>
+      <visual name="palm">
+        <geometry><box><size>0.08 0.04 0.04</size></box></geometry>
+        <material><ambient>0.22 0.22 0.22 1</ambient><diffuse>0.22 0.22 0.22 1</diffuse></material>
+      </visual>
+      <visual name="left_finger">
+        <pose>0.04 0.045 0 0 0 0</pose>
+        <geometry><box><size>0.08 0.018 0.035</size></box></geometry>
+        <material><ambient>0.05 0.05 0.05 1</ambient><diffuse>0.05 0.05 0.05 1</diffuse></material>
+      </visual>
+      <visual name="right_finger">
+        <pose>0.04 -0.045 0 0 0 0</pose>
+        <geometry><box><size>0.08 0.018 0.035</size></box></geometry>
+        <material><ambient>0.05 0.05 0.05 1</ambient><diffuse>0.05 0.05 0.05 1</diffuse></material>
+      </visual>
+      <collision name="collision"><geometry><box><size>0.12 0.12 0.05</size></box></geometry></collision>
+    </link>
+
+    <joint name="left_wheel_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>left_wheel</child>
+      <axis><xyz>0 0 1</xyz><limit><lower>-1e308</lower><upper>1e308</upper></limit></axis>
+    </joint>
+
+    <joint name="right_wheel_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>right_wheel</child>
+      <axis><xyz>0 0 1</xyz><limit><lower>-1e308</lower><upper>1e308</upper></limit></axis>
+    </joint>
+
+    <joint name="rear_caster_joint" type="ball">
+      <parent>base_link</parent>
+      <child>rear_caster</child>
+    </joint>
+
+    <joint name="camera_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>camera_link</child>
+    </joint>
+
+    <joint name="joint1" type="revolute">
+      <pose>0.18 0 0.20 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>arm_link_1</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit><lower>-1.2</lower><upper>1.4</upper><effort>8</effort><velocity>1.5</velocity></limit>
+      </axis>
+    </joint>
+
+    <joint name="joint2" type="revolute">
+      <pose>0.39 0 0.43 0 0 0</pose>
+      <parent>arm_link_1</parent>
+      <child>arm_link_2</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit><lower>-1.9</lower><upper>0.4</upper><effort>6</effort><velocity>1.5</velocity></limit>
+      </axis>
+    </joint>
+
+    <joint name="gripper_joint" type="revolute">
+      <pose>0.60 0 0.43 0 0 0</pose>
+      <parent>arm_link_2</parent>
+      <child>gripper</child>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit><lower>-0.6</lower><upper>1.1</upper><effort>2</effort><velocity>2.0</velocity></limit>
+      </axis>
+    </joint>
+
+    <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
+      <left_joint>left_wheel_joint</left_joint>
+      <right_joint>right_wheel_joint</right_joint>
+      <wheel_separation>0.50</wheel_separation>
+      <wheel_radius>0.07</wheel_radius>
+      <topic>cmd_vel</topic>
+      <odom_topic>odometry</odom_topic>
+      <frame_id>odom</frame_id>
+      <child_frame_id>base_link</child_frame_id>
+      <odom_publish_frequency>30</odom_publish_frequency>
+      <max_linear_velocity>0.7</max_linear_velocity>
+      <max_angular_velocity>1.4</max_angular_velocity>
+    </plugin>
+
+    <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
+      <joint_name>joint1</joint_name>
+      <topic>/rover/joint1_position</topic>
+      <p_gain>6.0</p_gain>
+    </plugin>
+    <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
+      <joint_name>joint2</joint_name>
+      <topic>/rover/joint2_position</topic>
+      <p_gain>6.0</p_gain>
+    </plugin>
+    <plugin filename="gz-sim-joint-position-controller-system" name="gz::sim::systems::JointPositionController">
+      <joint_name>gripper_joint</joint_name>
+      <topic>/rover/gripper_position</topic>
+      <p_gain>4.0</p_gain>
+    </plugin>
+  </model>
+</sdf>
