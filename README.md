@@ -4,6 +4,7 @@ A plane where a robot can interact with different shapes including a square, sph
 # Items Needed
 Running 26.04 Ubuntu Terminal
 Running ros2 lyrical luth
+A ROS 2 workspace folder (preferably named ros2_ws) with an 'src' folder inside
 
 
 # Setup (Put in Terminal)
