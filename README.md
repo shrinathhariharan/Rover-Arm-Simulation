@@ -11,6 +11,7 @@ A ROS 2 workspace folder (preferably named ros2_ws) with an 'src' folder inside
 sudo apt install ros-lyrical-ros-gz #install gazebo simulation
 
 cd ~/ros2_ws
+
 colcon build --packages-select rover_arm
 source install/setup.bash #build the workspace
 
