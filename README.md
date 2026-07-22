@@ -20,6 +20,7 @@ ros2 launch rover_arm rover_arm.launch.py #launch simulation
 
 # Optional Manual Teleop:
 #If wanting to use WASD to control the robot
+
 source ~/ros2_ws/install/setup.bash
 ros2 run rover_arm teleop_node #Do commands inside the teleop terminal to move the robot
 
