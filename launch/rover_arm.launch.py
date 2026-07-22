@@ -23,16 +23,17 @@ def generate_launch_description() -> LaunchDescription:
         name="GZ_SIM_RESOURCE_PATH",
         value=os.path.join(pkg_share, "models"),
     )
-    # Force dzn (D3D12) Vulkan backend to use the Intel GPU on WSL
-    mesa_d3d12_adapter = SetEnvironmentVariable(
-        name="MESA_D3D12_DEFAULT_ADAPTER_NAME",
-        value="Intel",
+    gazebo_model_path = SetEnvironmentVariable(
+        name="GZ_SIM_MODEL_PATH",
+        value=os.path.join(pkg_share, "models"),
     )
-    # Use llvmpipe (software Vulkan) to avoid dzn conformance issues on WSL
-    # llvmpipe is conformant and supports all required extensions for Ogre2 Vulkan
-    vk_icd_filenames = SetEnvironmentVariable(
-        name="VK_ICD_FILENAMES",
-        value="/usr/share/vulkan/icd.d/lvp_icd.x86_64.json",
+    qt_platform = SetEnvironmentVariable(
+        name="QT_QPA_PLATFORM",
+        value="xcb",
+    )
+    gdk_backend = SetEnvironmentVariable(
+        name="GDK_BACKEND",
+        value="x11",
     )
 
     gazebo = IncludeLaunchDescription(
@@ -121,12 +122,18 @@ def generate_launch_description() -> LaunchDescription:
         ),
         DeclareLaunchArgument(
             "gz_args",
-            default_value=f"-r {world_path} --render-engine-api-backend vulkan",
+            default_value=(
+                f"-r {world_path} "
+                "--render-engine-api-backend opengl "
+                "--render-engine-gui-api-backend opengl "
+                "--render-engine-server-api-backend opengl"
+            ),
             description="Gazebo Sim arguments",
         ),
         gazebo_resource_path,
-        mesa_d3d12_adapter,
-        vk_icd_filenames,
+        gazebo_model_path,
+        qt_platform,
+        gdk_backend,
         gazebo,
         bridge,
         motion_controller,

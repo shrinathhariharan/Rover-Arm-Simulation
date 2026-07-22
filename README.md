@@ -13,7 +13,7 @@ sudo apt install ros-lyrical-ros-gz #install gazebo simulation
 cd ~/ros2_ws
 
 colcon build --packages-select rover_arm
-source install/setup.bash #build the workspace
+source /opt/ros/lyrical/setup.bash #build the workspace
 
 source ~/ros2_ws/install/setup.bash
 ros2 launch rover_arm rover_arm.launch.py #launch simulation
