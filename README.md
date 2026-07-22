@@ -5,18 +5,19 @@ A plane where a robot can interact with different shapes, including a square, sp
 Running 26.04 Ubuntu Terminal
 Running ros2 lyrical luth
 A ROS 2 workspace folder (preferably named ros2_ws) with an 'src' folder inside
+The gazebo simulation installed
 
 
 # Setup (Put in Terminal)
-sudo apt install ros-lyrical-ros-gz #install gazebo simulation
+cd ros2_ws
 
-cd ~/ros2_ws
+source /opt/ros/lyrical/setup.bash
 
-colcon build --packages-select rover_arm
-source /opt/ros/lyrical/setup.bash #build the workspace
+source install/setup.bash
 
-source ~/ros2_ws/install/setup.bash
-ros2 launch rover_arm rover_arm.launch.py #launch simulation
+colcon build --packages-select rover_arm source /opt/ros/lyrical/setup.bash #build the workspace
+
+ros2 launch rover_arm rover_arm.launch.py #launch
 
 # Optional Manual Teleop:
 #If wanting to use WASD to control the robot
