@@ -27,14 +27,21 @@ ros2 run rover_arm teleop_node #Do commands inside the teleop terminal to move t
 # Extra Monitoring Commands
 source ~/ros2_ws/install/setup.bash
 
+
 #Current behavior state
+
 ros2 topic echo /rover_arm/state
 
 #What the camera sees
+
 ros2 topic echo /camera/image_raw --no-arr
 
+
 #Detected object
+
 ros2 topic echo /rover_arm/detected_object
 
+
 #List all topics
+
 ros2 topic list
