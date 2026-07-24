@@ -64,17 +64,14 @@ source ~/ros2_ws/install/setup.bash # Source the environment
 # View current rover state
 ros2 topic echo /rover_arm/state
 ```
-
 ```bash
 # View camera feed
 ros2 topic echo /camera/image_raw --no-arr
 ```
-
 ```bash
 # View detected objects
 ros2 topic echo /rover_arm/detected_object
 ```
-
 ```bash
 # List all available topics
 ros2 topic list
