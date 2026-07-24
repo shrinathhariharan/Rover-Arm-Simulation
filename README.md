@@ -1,6 +1,6 @@
 # Rover-Arm Simulation
 
-A ROS 2 simulation environment where a robot arm rover can interact with different shapes in a Gazebo physics environment, including cubes, spheres, and pyramids.
+A ROS 2 simulation environment where a robot arm rover can interact with different shapes in a Gazebo physics environment.
 
 ## Overview
 
@@ -50,7 +50,7 @@ source ~/ros2_ws/install/setup.bash
 ros2 run rover_arm teleop_node
 ```
 
-Then use keyboard commands in the teleop terminal to move the robot.
+Then use keyboard commands in the separate teleop terminal to move the robot.
 
 ## Monitoring Topics
 
