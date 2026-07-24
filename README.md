@@ -57,17 +57,25 @@ Then use keyboard commands in the separate teleop terminal to move the robot.
 After sourcing your workspace, you can monitor the following ROS 2 topics:
 
 ```bash
-source ~/ros2_ws/install/setup.bash
+source ~/ros2_ws/install/setup.bash # Source the environment
+```
 
+```bash
 # View current rover state
 ros2 topic echo /rover_arm/state
+```
 
+```bash
 # View camera feed
 ros2 topic echo /camera/image_raw --no-arr
+```
 
+```bash
 # View detected objects
 ros2 topic echo /rover_arm/detected_object
+```
 
+```bash
 # List all available topics
 ros2 topic list
 ```
